@@ -612,23 +612,23 @@ const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Affiliate / Organization Name <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Mailing Address <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
-                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
+                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Service Area (Counties/Zips) <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
                 </div>
             </div>
         </div>
@@ -637,8 +637,8 @@ const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="space-y-3">
                 {(data.staff || []).map((staff) => (
                     <div key={staff.id} className="flex gap-3 items-center">
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
                         <button onClick={() => removeStaff(staff.id)} className="text-gray-400 hover:text-red-500"><Trash2 className="h-4 w-4" /></button>
                     </div>
                 ))}
@@ -703,10 +703,10 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                 Select the topics below to open a text box where you can draft or paste your policy language.
             </p>
             
-            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
+            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-[#6C64DD]/10 border-[#6C64DD]/20' : 'bg-white border-gray-200'}`}>
                 <input
                     type="checkbox"
-                    className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                    className="h-5 w-5 rounded focus:ring-[#6C64DD]"
                     style={{ color: BRAND_COLOR }}
                     checked={data.policyPackage?.exists || false}
                     onChange={(e) => updatePackage(e.target.checked)}
@@ -721,11 +721,11 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         {REQUIRED_TOPICS_2_1_1.map(topic => {
                             const isChecked = data.policyPackage?.coveredTopics?.[topic.key] || false;
                             return (
-                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
+                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-[#6C64DD]/10 border-[#6C64DD]/20' : 'bg-white border-gray-200'}`}>
                                     <label className="flex items-center space-x-3 cursor-pointer">
                                         <input 
                                             type="checkbox"
-                                            className="rounded focus:ring-[#8179E2] h-4 w-4"
+                                            className="rounded focus:ring-[#6C64DD] h-4 w-4"
                                             style={{ color: BRAND_COLOR }}
                                             checked={isChecked}
                                             onChange={() => toggleCoveredTopic(topic.key)}
@@ -736,7 +736,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                                     {isChecked && (
                                         <div className="mt-3 ml-7 animate-fadeIn">
                                             <textarea
-                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2.5 border"
+                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-[#6C64DD] focus:ring-[#6C64DD] p-2.5 border"
                                                 rows={3}
                                                 placeholder={`Enter policy text for ${topic.label}...`}
                                                 value={data.policyPackage?.topicContent?.[topic.key] || ''}
@@ -788,7 +788,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                                className="h-5 w-5 rounded focus:ring-[#6C64DD]"
                                 style={{ color: BRAND_COLOR }}
                                 checked={isOrg} 
                                 onChange={(e) => updateMap(row.key, 'org', e.target.checked)} 
@@ -797,7 +797,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                                className="h-5 w-5 rounded focus:ring-[#6C64DD]"
                                 style={{ color: BRAND_COLOR }}
                                 checked={isProgram} 
                                 onChange={(e) => updateMap(row.key, 'program', e.target.checked)} 
@@ -807,7 +807,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                             {isProgram && (
                                 <div className="animate-fadeIn">
                                     <textarea
-                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2 border"
+                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-[#6C64DD] focus:ring-[#6C64DD] p-2 border"
                                         rows={2}
                                         placeholder={`Enter specific ${row.label} program policy details...`}
                                         value={details}
@@ -851,16 +851,16 @@ const ProgramModelStep: React.FC<StepProps> = ({ data, onChange }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Role Title</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#6C64DD] focus:ring-[#6C64DD] px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
             </div>
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Key Responsibilities</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#6C64DD] focus:ring-[#6C64DD] px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
             </div>
           </div>
         </div>
       ))}
-      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-[#8179E2] hover:text-[#8179E2] hover:bg-[#8179E2]/10 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
+      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-[#6C64DD] hover:text-[#6C64DD] hover:bg-[#6C64DD]/10 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
     </div>
   );
 };
@@ -878,7 +878,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Pricing Model Type</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
                     <option value="grant">Grant / No Cost</option>
                     <option value="loan">Loan / Repayment</option>
                     <option value="hybrid">Hybrid (Grant + Loan)</option>
@@ -887,15 +887,15 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Calculation Method</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Repayment Terms & Hardship Policy</label>
-                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
+                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Financial Cap per Project ($)</label>
-                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
+                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
             </div>
         </div>
       </div>
@@ -914,7 +914,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === true} 
                         onChange={() => setHasCatalog(true)} 
-                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#6C64DD]"
                         style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">Yes</span>
@@ -925,7 +925,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === false} 
                         onChange={() => setHasCatalog(false)} 
-                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#6C64DD]"
                         style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">No</span>
@@ -985,7 +985,7 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Requirement <span className="text-red-500">*</span></label>
                         <select 
-                            className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" 
+                            className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" 
                             value={participation.required || ''} 
                             onChange={(e) => updateParticipation('required', e.target.value)}
                         >
@@ -996,11 +996,11 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Options & Accommodations</label>
-                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
+                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Documentation Method</label>
-                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
+                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
                     </div>
                 </div>
             </div>
@@ -1162,7 +1162,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 type="range" 
                 min="1" 
                 max="5" 
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8179E2]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#6C64DD]"
                 value={data.priorityFactors?.healthSafety || 5}
                 onChange={(e) => onChange('priorityFactors', { ...data.priorityFactors, healthSafety: parseInt(e.target.value) })}
                 />
@@ -1238,7 +1238,7 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Method</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
                     <option value="Bids">Competitive Bids (3+)</option>
                     <option value="Preferred Vendor List">Preferred Vendor List</option>
                     <option value="Sole Source">Sole Source (Specialized)</option>
@@ -1246,14 +1246,14 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Minimum Qualifications</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Required Documentation</label>
                 <div className="flex gap-4">
                     {['w9', 'coi', 'bonding', 'warranty'].map(doc => (
                         <label key={doc} className="flex items-center space-x-2">
-                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600 focus:ring-[#8179E2]" />
+                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600 focus:ring-[#6C64DD]" />
                             <span className="uppercase text-sm">{doc}</span>
                         </label>
                     ))}
@@ -1268,15 +1268,15 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Allowed vs. Prohibited Scopes</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Supervision Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Training Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
             </div>
         </div>
       </div>
@@ -1287,15 +1287,15 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Risk Screening Topics</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Safety Plan Elements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Mandatory Specialty Contractors</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
             </div>
         </div>
       </div>
@@ -1314,15 +1314,15 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 gap-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Funding Mix Strategy</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Cost Controls & Contingency</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Targets (Pipeline)</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
             </div>
         </div>
       </div>
@@ -1332,7 +1332,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Reporting Schedule</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
                     <option value="annually">Annually</option>
@@ -1340,7 +1340,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feedback Mechanism</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
             </div>
         </div>
       </div>
@@ -1700,7 +1700,7 @@ export default function RepairManualBuilder() {
               <Book className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">Policy Builder</span>
+                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">P&P Builder</span>
                 <span className="text-xs text-blue-400 font-medium">for Repair programs</span>
             </div>
           </div>
@@ -1782,7 +1782,7 @@ export default function RepairManualBuilder() {
                 <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mr-3 text-gray-600">
                     {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
-                <span className="font-bold text-gray-800">Policy Builder</span>
+                <span className="font-bold text-gray-800">P&P Builder</span>
            </div>
         </div>
 
@@ -1803,10 +1803,7 @@ export default function RepairManualBuilder() {
              <button 
                onClick={() => setCurrentStep(Math.min(STEPS.length - 1, currentStep + 1))}
                disabled={currentStep === STEPS.length - 1}
-               className="px-4 py-2 text-white rounded-lg shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
-               style={{ backgroundColor: BRAND_COLOR }}
-               onMouseOver={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR_DARK}
-               onMouseOut={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR}
+               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
              >
                Next Step <ChevronRight className="ml-2 h-4 w-4" />
              </button>

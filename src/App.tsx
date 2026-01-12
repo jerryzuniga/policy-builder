@@ -124,7 +124,7 @@ interface ManualData {
       documentation: string;
     };
   };
-  stages: Stage[]; // Kept for legacy compatibility if needed
+  stages: Stage[]; // Kept for legacy compatibility if needed, though duplicative of clientServices.stages in concept
   participation: {
     required: string;
     options: string;
@@ -1580,7 +1580,6 @@ const ExportStep: React.FC<{ data: ManualData }> = ({ data }) => {
 // --- Main App Component ---
 
 export default function RepairManualBuilder() {
-  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'builder'

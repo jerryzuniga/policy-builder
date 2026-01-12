@@ -171,6 +171,11 @@ interface ManualData {
   lastUpdated?: string;
 }
 
+interface StepProps {
+  data: ManualData;
+  onChange: (field: keyof ManualData, value: any) => void;
+}
+
 // --- Constants ---
 
 const APP_VERSION = '1.7.8.1';
@@ -607,23 +612,23 @@ const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Affiliate / Organization Name <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Mailing Address <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
-                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
+                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Service Area (Counties/Zips) <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
                 </div>
             </div>
         </div>
@@ -632,8 +637,8 @@ const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="space-y-3">
                 {(data.staff || []).map((staff) => (
                     <div key={staff.id} className="flex gap-3 items-center">
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
                         <button onClick={() => removeStaff(staff.id)} className="text-gray-400 hover:text-red-500"><Trash2 className="h-4 w-4" /></button>
                     </div>
                 ))}
@@ -698,10 +703,10 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                 Select the topics below to open a text box where you can draft or paste your policy language.
             </p>
             
-            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-[#6C64DD]/10 border-[#6C64DD]/20' : 'bg-white border-gray-200'}`}>
+            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
                 <input
                     type="checkbox"
-                    className="h-5 w-5 rounded focus:ring-[#6C64DD]"
+                    className="h-5 w-5 rounded focus:ring-[#8179E2]"
                     style={{ color: BRAND_COLOR }}
                     checked={data.policyPackage?.exists || false}
                     onChange={(e) => updatePackage(e.target.checked)}
@@ -716,11 +721,11 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         {REQUIRED_TOPICS_2_1_1.map(topic => {
                             const isChecked = data.policyPackage?.coveredTopics?.[topic.key] || false;
                             return (
-                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-[#6C64DD]/10 border-[#6C64DD]/20' : 'bg-white border-gray-200'}`}>
+                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
                                     <label className="flex items-center space-x-3 cursor-pointer">
                                         <input 
                                             type="checkbox"
-                                            className="rounded focus:ring-[#6C64DD] h-4 w-4"
+                                            className="rounded focus:ring-[#8179E2] h-4 w-4"
                                             style={{ color: BRAND_COLOR }}
                                             checked={isChecked}
                                             onChange={() => toggleCoveredTopic(topic.key)}
@@ -731,7 +736,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                                     {isChecked && (
                                         <div className="mt-3 ml-7 animate-fadeIn">
                                             <textarea
-                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-[#6C64DD] focus:ring-[#6C64DD] p-2.5 border"
+                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2.5 border"
                                                 rows={3}
                                                 placeholder={`Enter policy text for ${topic.label}...`}
                                                 value={data.policyPackage?.topicContent?.[topic.key] || ''}
@@ -783,7 +788,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 rounded focus:ring-[#6C64DD]"
+                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
                                 style={{ color: BRAND_COLOR }}
                                 checked={isOrg} 
                                 onChange={(e) => updateMap(row.key, 'org', e.target.checked)} 
@@ -792,7 +797,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 rounded focus:ring-[#6C64DD]"
+                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
                                 style={{ color: BRAND_COLOR }}
                                 checked={isProgram} 
                                 onChange={(e) => updateMap(row.key, 'program', e.target.checked)} 
@@ -802,7 +807,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                             {isProgram && (
                                 <div className="animate-fadeIn">
                                     <textarea
-                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-[#6C64DD] focus:ring-[#6C64DD] p-2 border"
+                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2 border"
                                         rows={2}
                                         placeholder={`Enter specific ${row.label} program policy details...`}
                                         value={details}
@@ -846,16 +851,16 @@ const ProgramModelStep: React.FC<StepProps> = ({ data, onChange }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Role Title</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#6C64DD] focus:ring-[#6C64DD] px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
             </div>
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Key Responsibilities</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#6C64DD] focus:ring-[#6C64DD] px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
             </div>
           </div>
         </div>
       ))}
-      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-[#6C64DD] hover:text-[#6C64DD] hover:bg-[#6C64DD]/10 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
+      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-[#8179E2] hover:text-[#8179E2] hover:bg-[#8179E2]/10 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
     </div>
   );
 };
@@ -874,7 +879,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Pricing Model Type</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
                     <option value="grant">Grant / No Cost</option>
                     <option value="loan">Loan / Repayment</option>
                     <option value="hybrid">Hybrid (Grant + Loan)</option>
@@ -883,15 +888,15 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Calculation Method</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Repayment Terms & Hardship Policy</label>
-                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
+                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Financial Cap per Project ($)</label>
-                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
+                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
             </div>
         </div>
       </div>
@@ -910,7 +915,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === true} 
                         onChange={() => setHasCatalog(true)} 
-                        className="h-4 w-4 border-gray-300 focus:ring-[#6C64DD]"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
                         style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">Yes</span>
@@ -921,7 +926,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === false} 
                         onChange={() => setHasCatalog(false)} 
-                        className="h-4 w-4 border-gray-300 focus:ring-[#6C64DD]"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
                         style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">No</span>
@@ -981,7 +986,7 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Requirement <span className="text-red-500">*</span></label>
                         <select 
-                            className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" 
+                            className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" 
                             value={participation.required || ''} 
                             onChange={(e) => updateParticipation('required', e.target.value)}
                         >
@@ -992,11 +997,11 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Options & Accommodations</label>
-                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
+                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Documentation Method</label>
-                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
+                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
                     </div>
                 </div>
             </div>
@@ -1057,7 +1062,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Assessment Protocol</label>
                 <select 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.assessmentProtocol || 'internal'}
                     onChange={(e) => updateFeasibility('assessmentProtocol', e.target.value)}
                 >
@@ -1071,7 +1076,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Authority (Role)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.selectionAuthority || ''}
                     onChange={(e) => updateFeasibility('selectionAuthority', e.target.value)}
                     placeholder="e.g. Program Manager"
@@ -1081,7 +1086,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Decision Artifact (Document)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.selectionArtifact || ''}
                     onChange={(e) => updateFeasibility('selectionArtifact', e.target.value)}
                     placeholder="e.g. Project Selection Scorecard, Approval Memo"
@@ -1090,7 +1095,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feasibility Limits (Deferral Policy)</label>
                 <textarea 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24 focus:border-[#6C64DD] focus:ring-[#6C64DD]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24 focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.feasibilityLimits || ''}
                     onChange={(e) => updateFeasibility('feasibilityLimits', e.target.value)}
                     placeholder="Describe when a project is rejected (e.g. Cost exceeds 50% of home value, structural instability, hoarding issues)."
@@ -1107,12 +1112,12 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         <h4 className="font-bold text-gray-900 mb-4">Intake Channels</h4>
         <div className="flex flex-wrap gap-4">
           {['phone', 'web', 'walkin'].map(channel => (
-            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-[#6C64DD]/10 border-[#6C64DD] ring-1 ring-[#6C64DD]' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
+            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-[#8179E2]/10 border-[#8179E2] ring-1 ring-[#8179E2]' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
               <input 
                 type="checkbox" 
                 checked={data.intakeMethods[channel]}
                 onChange={(e) => onChange('intakeMethods', { ...data.intakeMethods, [channel]: e.target.checked })}
-                className="rounded focus:ring-[#6C64DD] h-5 w-5"
+                className="rounded focus:ring-[#8179E2] h-5 w-5"
                 style={{ color: BRAND_COLOR }}
               />
               <span className="capitalize text-sm font-medium text-gray-700">{channel === 'walkin' ? 'Walk-in' : channel}</span>
@@ -1129,10 +1134,10 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
           {VULNERABLE_GROUPS.map(group => (
-            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-[#6C64DD]/10 border-[#6C64DD]' : 'hover:bg-slate-50 border-transparent'}`}>
+            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-[#8179E2]/10 border-[#8179E2]' : 'hover:bg-slate-50 border-transparent'}`}>
                <input 
                  type="checkbox"
-                 className="mt-1 rounded focus:ring-[#6C64DD] h-4 w-4"
+                 className="mt-1 rounded focus:ring-[#8179E2] h-4 w-4"
                  style={{ color: BRAND_COLOR }}
                  checked={data.priorityFactors?.[group.key] !== undefined}
                  onChange={() => toggleGroup(group.key)}
@@ -1778,12 +1783,7 @@ export default function RepairManualBuilder() {
                 <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mr-3 text-gray-600">
                     {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
-                <div className="flex items-center space-x-2">
-                  <div className="p-1 rounded-lg" style={{ backgroundColor: BRAND_COLOR }}>
-                    <img src={LOGO_URL} alt="Policy Builder" className="h-5 w-5 object-contain" />
-                  </div>
-                  <span className="font-bold text-gray-800">Policy Builder</span>
-                </div>
+                <span className="font-bold text-gray-800">Policy Builder</span>
            </div>
         </div>
 

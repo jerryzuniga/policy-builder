@@ -589,11 +589,6 @@ const GuidePanel: React.FC<{ stepId: string }> = ({ stepId }) => {
 
 // --- Step Components ---
 
-interface StepProps {
-  data: ManualData;
-  onChange: (field: keyof ManualData, value: any) => void;
-}
-
 const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
   const addStaff = () => {
     const newStaff = { id: Date.now(), name: '', title: '' };
@@ -1183,7 +1178,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                     type="range" 
                     min="1" 
                     max="5" 
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#6C64DD]"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8179E2]"
                     value={data.priorityFactors[factor]}
                     onChange={(e) => onChange('priorityFactors', { ...data.priorityFactors, [factor]: parseInt(e.target.value) })}
                 />
@@ -1311,7 +1306,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
     <div className="space-y-8">
       {/* Financial Sustainability */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><ActivityIcon className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Financial Sustainability</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Activity className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Financial Sustainability</h4>
         <div className="grid grid-cols-1 gap-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Funding Mix Strategy</label>

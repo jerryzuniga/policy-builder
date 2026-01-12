@@ -173,8 +173,11 @@ interface ManualData {
 
 // --- Constants ---
 
-const APP_VERSION = '1.7.7';
+const APP_VERSION = '1.7.8';
 const STORAGE_KEY = 'repair_manual_data_v1';
+const BRAND_COLOR = '#8179E2'; // Updated to Purple/Lavender
+const BRAND_COLOR_DARK = '#6961CC'; // Darker shade for hover/interactions
+const LOGO_URL = 'https://github.com/jerryzuniga/Preservation/blob/ce11cf49a7ae9130b7763e2de2d66cdcdf9d82ad/public/policy.png?raw=true';
 
 const STEPS: Step[] = [
   { id: 'foundations', title: 'Setup', icon: Book, description: 'Org details and Key Staff' },
@@ -367,7 +370,7 @@ const INITIAL_DATA: ManualData = {
   },
 
   // Meta
-  version: '1.7.7',
+  version: '1.7.8',
   lastUpdated: new Date().toISOString(),
   constructionActivities: {
     hasCatalog: null, 
@@ -392,10 +395,10 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <Book className="h-5 w-5 text-white" />
+              <div className="p-1 rounded-lg">
+                <img src={LOGO_URL} alt="Policy Builder" className="h-8 w-8 object-contain" />
               </div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight">P&P <span className="text-blue-600">Builder</span></span>
+              <span className="text-xl font-bold text-gray-900 tracking-tight">Policy<span style={{ color: BRAND_COLOR }}>Builder</span></span>
             </div>
             <button 
               onClick={onStart}
@@ -411,19 +414,22 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
       <div className="relative overflow-hidden pt-16 pb-24 lg:pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wide mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-[#3c366b] text-xs font-semibold uppercase tracking-wide mb-6" style={{ backgroundColor: `${BRAND_COLOR}20` }}>
               New: Policy 33 Automation
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
-              Build a Compliant Home Repair Manual <span className="text-blue-600">in Minutes.</span>
+              Build a Compliant Home Repair Manual <span style={{ color: BRAND_COLOR }}>in Minutes.</span>
             </h1>
             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Stop starting from a blank page. The P&P Builder guides you through every step of creating a Board-ready Policy & Procedure manual, ensuring full alignment with U.S. Policy 33.
+              Stop starting from a blank page. The Policy Builder guides you through every step of creating a Board-ready Policy & Procedure manual, ensuring full alignment with U.S. Policy 33.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button 
                 onClick={onStart}
-                className="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-200 transition-all hover:-translate-y-1"
+                className="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white shadow-xl transition-all hover:-translate-y-1"
+                style={{ backgroundColor: BRAND_COLOR }}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR_DARK}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR}
               >
                 Launch Builder
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -446,8 +452,8 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-6">
-                <CheckSquare className="w-6 h-6 text-emerald-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: `${BRAND_COLOR}20` }}>
+                <CheckSquare className="w-6 h-6" style={{ color: BRAND_COLOR }} />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Policy 33 Compliance</h3>
               <p className="text-slate-600">Built-in checklists ensure you meet all 9 required topic areas, from 2.1.1 assessments to 2.1.8 insurance requirements.</p>
@@ -490,7 +496,7 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
                   return (
                     <div key={i} className="flex items-start">
                       <div className="flex-shrink-0 mt-1">
-                        <Icon className="w-6 h-6 text-blue-600" />
+                        <Icon className="w-6 h-6" style={{ color: BRAND_COLOR }} />
                       </div>
                       <div className="ml-4">
                         <h4 className="text-lg font-semibold text-slate-900">{item.title}</h4>
@@ -502,12 +508,12 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl transform rotate-3 opacity-20 blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#8179E2] to-purple-600 rounded-2xl transform rotate-3 opacity-20 blur-xl"></div>
               <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl p-8">
                 <div className="space-y-4">
                    <div className="h-4 bg-gray-100 rounded w-3/4"></div>
                    <div className="h-4 bg-gray-100 rounded w-1/2"></div>
-                   <div className="h-32 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center text-blue-500 font-medium">
+                   <div className="h-32 bg-[#8179E2]/10 rounded-xl border border-[#8179E2]/30 flex items-center justify-center text-[#8179E2] font-medium">
                        Interactive Policy Builder Preview
                    </div>
                    <div className="h-4 bg-gray-100 rounded w-5/6"></div>
@@ -522,10 +528,13 @@ const LandingPage: React.FC<{ onStart: () => void }> = ({ onStart }) => {
       <div className="bg-slate-900 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to professionalize your repair program?</h2>
-          <p className="text-slate-400 mb-10 text-lg">Join hundreds of affiliates using P&P Builder to standardize operations and reduce risk.</p>
+          <p className="text-slate-400 mb-10 text-lg">Join hundreds of affiliates using Policy Builder to standardize operations and reduce risk.</p>
           <button 
             onClick={onStart}
-            className="inline-flex justify-center items-center px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all hover:scale-105"
+            className="inline-flex justify-center items-center px-8 py-4 text-white font-bold rounded-xl transition-all hover:scale-105"
+            style={{ backgroundColor: BRAND_COLOR }}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR_DARK}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR}
           >
             Launch Builder
             <ChevronRight className="ml-2 w-5 h-5" />
@@ -559,17 +568,17 @@ const GuidePanel: React.FC<{ stepId: string }> = ({ stepId }) => {
     <div className="bg-white border-l border-gray-200 p-6 h-full shadow-sm flex flex-col">
       <div className="flex-1">
         <div className="flex items-center mb-4">
-            <div className="bg-blue-100 p-2 rounded-full mr-3">
-              {stepId === 'clientServices' ? <AlertCircle className="w-5 h-5 text-blue-600" /> : <Info className="w-5 h-5 text-blue-600" />}
+            <div className="p-2 rounded-full mr-3" style={{ backgroundColor: `${BRAND_COLOR}20` }}>
+              {stepId === 'clientServices' ? <AlertCircle className="w-5 h-5" style={{ color: BRAND_COLOR }} /> : <Info className="w-5 h-5" style={{ color: BRAND_COLOR }} />}
             </div>
             <h4 className="font-bold text-gray-800 text-sm uppercase tracking-wide">
               {stepId === 'clientServices' ? 'IMPORTANT' : 'Best Practices'}
             </h4>
         </div>
-        <h3 className="text-lg font-semibold text-blue-900 mb-3">{content.title}</h3>
+        <h3 className="text-lg font-semibold mb-3" style={{ color: '#3c366b' }}>{content.title}</h3>
         <p className="text-sm text-gray-600 leading-relaxed mb-6">{content.text}</p>
         {content.link && (
-            <a href={content.link} target="_blank" rel="noopener noreferrer" className="flex items-center p-3 bg-blue-50 border border-blue-100 rounded-lg text-sm text-blue-700 font-medium hover:bg-blue-100 transition-colors group">
+            <a href={content.link} target="_blank" rel="noopener noreferrer" className="flex items-center p-3 border rounded-lg text-sm font-medium transition-colors group" style={{ backgroundColor: `${BRAND_COLOR}10`, borderColor: `${BRAND_COLOR}30`, color: BRAND_COLOR_DARK }}>
             <FileText className="w-4 h-4 mr-2" />{content.linkText || "View Resource"}<ExternalLink className="w-3 h-3 ml-auto opacity-50 group-hover:opacity-100" />
             </a>
         )}
@@ -603,37 +612,37 @@ const FoundationsStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Affiliate / Organization Name <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgName || ''} onChange={(e) => onChange('orgName', e.target.value)} placeholder="e.g. Habitat for Humanity of Springfield" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Mailing Address <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgAddress || ''} onChange={(e) => onChange('orgAddress', e.target.value)} placeholder="e.g. 123 Main St, Springfield, IL 62704" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgPhone || ''} onChange={(e) => onChange('orgPhone', e.target.value)} placeholder="(555) 123-4567" />
                 </div>
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
-                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
+                    <input type="email" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.orgEmail || ''} onChange={(e) => onChange('orgEmail', e.target.value)} placeholder="info@habitatspringfield.org" />
                 </div>
                 <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Service Area (Counties/Zips) <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
+                    <input type="text" className="w-full rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.serviceArea || ''} onChange={(e) => onChange('serviceArea', e.target.value)} placeholder="e.g. Greene County and Northern Polk County" />
                 </div>
             </div>
         </div>
         <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-            <h4 className="font-bold text-gray-900 mb-4 flex items-center border-b pb-2"><User className="w-5 h-5 mr-2 text-blue-600"/> Key Staff Contacts</h4>
+            <h4 className="font-bold text-gray-900 mb-4 flex items-center border-b pb-2"><User className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Key Staff Contacts</h4>
             <div className="space-y-3">
                 {(data.staff || []).map((staff) => (
                     <div key={staff.id} className="flex gap-3 items-center">
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
-                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.name} onChange={(e) => updateStaff(staff.id, 'name', e.target.value)} placeholder="Full Name" />
+                        <input type="text" className="flex-1 rounded-lg border-gray-300 shadow-sm p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={staff.title} onChange={(e) => updateStaff(staff.id, 'title', e.target.value)} placeholder="Job Title" />
                         <button onClick={() => removeStaff(staff.id)} className="text-gray-400 hover:text-red-500"><Trash2 className="h-4 w-4" /></button>
                     </div>
                 ))}
-                <button onClick={addStaff} className="text-sm text-blue-600 font-medium flex items-center mt-2"><Plus className="h-4 w-4 mr-1" /> Add Staff Member</button>
+                <button onClick={addStaff} className="text-sm font-medium flex items-center mt-2" style={{ color: BRAND_COLOR }}><Plus className="h-4 w-4 mr-1" /> Add Staff Member</button>
             </div>
         </div>
     </div>
@@ -685,7 +694,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
         <div className="bg-slate-50 px-6 py-4 border-b border-gray-200">
             <h3 className="font-bold text-gray-800 flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-blue-600"/> Repair Program Policy Package (2.1.1)
+                <FileText className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Repair Program Policy Package (2.1.1)
             </h3>
         </div>
         <div className="p-6">
@@ -694,10 +703,11 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                 Select the topics below to open a text box where you can draft or paste your policy language.
             </p>
             
-            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-blue-50 border-blue-200' : 'bg-white border-gray-200'}`}>
+            <label className={`flex items-center space-x-3 p-4 rounded-xl border transition-all cursor-pointer shadow-sm mb-6 ${data.policyPackage?.exists ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
                 <input
                     type="checkbox"
-                    className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                    style={{ color: BRAND_COLOR }}
                     checked={data.policyPackage?.exists || false}
                     onChange={(e) => updatePackage(e.target.checked)}
                 />
@@ -711,21 +721,22 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         {REQUIRED_TOPICS_2_1_1.map(topic => {
                             const isChecked = data.policyPackage?.coveredTopics?.[topic.key] || false;
                             return (
-                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-blue-50 border-blue-200' : 'bg-white border-gray-200'}`}>
+                                <div key={topic.key} className={`border rounded-lg p-3 transition-all ${isChecked ? 'bg-[#8179E2]/10 border-[#8179E2]/20' : 'bg-white border-gray-200'}`}>
                                     <label className="flex items-center space-x-3 cursor-pointer">
                                         <input 
                                             type="checkbox"
-                                            className="rounded text-blue-600 focus:ring-blue-500 h-4 w-4"
+                                            className="rounded focus:ring-[#8179E2] h-4 w-4"
+                                            style={{ color: BRAND_COLOR }}
                                             checked={isChecked}
                                             onChange={() => toggleCoveredTopic(topic.key)}
                                         />
-                                        <span className={`text-sm font-medium ${isChecked ? 'text-blue-900' : 'text-gray-700'}`}>{topic.label}</span>
+                                        <span className={`text-sm font-medium ${isChecked ? 'text-[#6961CC]' : 'text-gray-700'}`}>{topic.label}</span>
                                     </label>
                                     
                                     {isChecked && (
                                         <div className="mt-3 ml-7 animate-fadeIn">
                                             <textarea
-                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border"
+                                                className="w-full text-sm rounded-lg border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2.5 border"
                                                 rows={3}
                                                 placeholder={`Enter policy text for ${topic.label}...`}
                                                 value={data.policyPackage?.topicContent?.[topic.key] || ''}
@@ -745,7 +756,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
       <div className="border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white">
         <div className="bg-slate-50 px-6 py-4 border-b border-gray-200">
             <h3 className="font-bold text-gray-800 flex items-center">
-                <Shield className="w-5 h-5 mr-2 text-blue-600"/> Affiliate Policy Map
+                <Shield className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Affiliate Policy Map
             </h3>
         </div>
         
@@ -777,7 +788,8 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                                style={{ color: BRAND_COLOR }}
                                 checked={isOrg} 
                                 onChange={(e) => updateMap(row.key, 'org', e.target.checked)} 
                             />
@@ -785,7 +797,8 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                         <td className="px-3 py-4 text-center align-top pt-5">
                             <input 
                                 type="checkbox" 
-                                className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                className="h-5 w-5 rounded focus:ring-[#8179E2]"
+                                style={{ color: BRAND_COLOR }}
                                 checked={isProgram} 
                                 onChange={(e) => updateMap(row.key, 'program', e.target.checked)} 
                             />
@@ -794,7 +807,7 @@ const PolicyMapStep: React.FC<StepProps> = ({ data, onChange }) => {
                             {isProgram && (
                                 <div className="animate-fadeIn">
                                     <textarea
-                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                                        className="w-full text-xs rounded border-gray-300 shadow-sm focus:border-[#8179E2] focus:ring-[#8179E2] p-2 border"
                                         rows={2}
                                         placeholder={`Enter specific ${row.label} program policy details...`}
                                         value={details}
@@ -838,16 +851,16 @@ const ProgramModelStep: React.FC<StepProps> = ({ data, onChange }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Role Title</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-blue-500 focus:ring-0 px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 font-medium placeholder-gray-300 transition-colors bg-transparent" value={role.title} onChange={(e) => updateRole(role.id, 'title', e.target.value)} placeholder="Enter title" />
             </div>
             <div>
               <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Key Responsibilities</label>
-              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-blue-500 focus:ring-0 px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
+              <input type="text" className="block w-full border-0 border-b-2 border-gray-100 focus:border-[#8179E2] focus:ring-[#8179E2] px-0 py-2 text-gray-900 placeholder-gray-300 transition-colors bg-transparent" value={role.responsibilities} onChange={(e) => updateRole(role.id, 'responsibilities', e.target.value)} placeholder="Enter responsibilities" />
             </div>
           </div>
         </div>
       ))}
-      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
+      <button onClick={addRole} className="w-full flex justify-center items-center py-4 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-[#8179E2] hover:text-[#8179E2] hover:bg-[#8179E2]/10 transition-all"><Plus className="h-5 w-5 mr-2" /> Add New Role</button>
     </div>
   );
 };
@@ -856,16 +869,17 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
   const updatePricing = (field: string, value: string) => onChange('pricing', { ...data.pricing, [field]: value });
   // Logic to handle catalog selection
   const setHasCatalog = (val: boolean) => onChange('constructionActivities', { ...data.constructionActivities, hasCatalog: val });
+  const updateActivities = (field: string, value: string) => onChange('constructionActivities', { ...data.constructionActivities, [field]: value });
 
   return (
     <div className="space-y-8">
       {/* Pricing Model - Moved Up */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><DollarSign className="w-5 h-5 mr-2 text-blue-600"/> Pricing & Repayment Model</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><DollarSign className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Pricing & Repayment Model</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Pricing Model Type</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.modelType || 'grant'} onChange={(e) => updatePricing('modelType', e.target.value)}>
                     <option value="grant">Grant / No Cost</option>
                     <option value="loan">Loan / Repayment</option>
                     <option value="hybrid">Hybrid (Grant + Loan)</option>
@@ -874,22 +888,22 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Calculation Method</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.calculationMethod || ''} onChange={(e) => updatePricing('calculationMethod', e.target.value)} placeholder="e.g. Materials + Labor + 15%" />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Repayment Terms & Hardship Policy</label>
-                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
+                <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.pricing?.repaymentTerms || ''} onChange={(e) => updatePricing('repaymentTerms', e.target.value)} placeholder="e.g. 0% interest, forgivable lien. Hardship deferrals available." />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Financial Cap per Project ($)</label>
-                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
+                <input type="number" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.financialCap} onChange={(e) => onChange('financialCap', e.target.value)} />
             </div>
         </div>
       </div>
 
       {/* Construction Activities - Simplified & Moved Down */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Hammer className="w-5 h-5 mr-2 text-blue-600"/> Construction Activities</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Hammer className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Construction Activities</h4>
         <div className="space-y-4">
              <label className="block text-sm font-medium text-gray-700">
                 Have you generated a comprehensive construction activities list using the Catalog Builder?
@@ -901,7 +915,8 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === true} 
                         onChange={() => setHasCatalog(true)} 
-                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
+                        style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">Yes</span>
                 </label>
@@ -911,7 +926,8 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
                         name="hasCatalog" 
                         checked={data.constructionActivities?.hasCatalog === false} 
                         onChange={() => setHasCatalog(false)} 
-                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                        className="h-4 w-4 border-gray-300 focus:ring-[#8179E2]"
+                        style={{ color: BRAND_COLOR }}
                     />
                     <span className="ml-2 text-sm text-gray-900">No</span>
                 </label>
@@ -965,12 +981,12 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
     return (
         <div className="space-y-8">
              <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center"><User className="w-5 h-5 mr-2 text-blue-600"/> Owner Participation (Sweat Equity)</h4>
+                <h4 className="font-bold text-gray-900 mb-4 flex items-center"><User className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Owner Participation (Sweat Equity)</h4>
                 <div className="grid grid-cols-1 gap-6">
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Requirement <span className="text-red-500">*</span></label>
                         <select 
-                            className="block w-full rounded-lg border-gray-300 p-2.5 border" 
+                            className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" 
                             value={participation.required || ''} 
                             onChange={(e) => updateParticipation('required', e.target.value)}
                         >
@@ -981,21 +997,21 @@ const ClientServicesStep: React.FC<StepProps> = ({ data, onChange }) => {
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Participation Options & Accommodations</label>
-                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
+                        <textarea className="block w-full rounded-lg border-gray-300 p-2.5 border h-20 focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.options || ''} onChange={(e) => updateParticipation('options', e.target.value)} placeholder="e.g. Site prep, lunch, education classes. Physical limitations accommodated via..." />
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Documentation Method</label>
-                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
+                        <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={participation.documentation || ''} onChange={(e) => updateParticipation('documentation', e.target.value)} placeholder="e.g. Homeowner Agreement Clause" />
                     </div>
                 </div>
             </div>
 
              <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Activity className="w-5 h-5 mr-2 text-blue-600"/> Project Lifecycle Stages</h4>
+                <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Activity className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Project Lifecycle Stages</h4>
                 <div className="pl-4 border-l-2 border-gray-200 space-y-6">
                     {stages.map((stage) => (
                         <div key={stage.id} className="pl-4 relative">
-                            <div className="absolute -left-[21px] top-1 w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full" style={{ backgroundColor: BRAND_COLOR }}></div>
                             <h5 className="font-bold text-sm text-gray-800">{stage.name}</h5>
                             <div className="flex items-center text-xs text-gray-500 mt-1 bg-gray-50 p-2 rounded inline-block">
                                 <FileText className="w-3 h-3 mr-1" />
@@ -1035,7 +1051,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
       {/* 2.1.1 Project Assessment & Selection Card */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
         <div className="flex items-center mb-4">
-            <ClipboardCheck className="w-5 h-5 mr-2 text-blue-600"/> 
+            <ClipboardCheck className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> 
             <h4 className="font-bold text-gray-900">Project Assessment & Selection</h4>
         </div>
         <p className="text-sm text-gray-500 mb-6">
@@ -1046,7 +1062,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Assessment Protocol</label>
                 <select 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.assessmentProtocol || 'internal'}
                     onChange={(e) => updateFeasibility('assessmentProtocol', e.target.value)}
                 >
@@ -1060,7 +1076,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Authority (Role)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.selectionAuthority || ''}
                     onChange={(e) => updateFeasibility('selectionAuthority', e.target.value)}
                     placeholder="e.g. Program Manager"
@@ -1070,7 +1086,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Decision Artifact (Document)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.selectionArtifact || ''}
                     onChange={(e) => updateFeasibility('selectionArtifact', e.target.value)}
                     placeholder="e.g. Project Selection Scorecard, Approval Memo"
@@ -1079,7 +1095,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feasibility Limits (Deferral Policy)</label>
                 <textarea 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24 focus:border-[#8179E2] focus:ring-[#8179E2]"
                     value={data.projectFeasibility?.feasibilityLimits || ''}
                     onChange={(e) => updateFeasibility('feasibilityLimits', e.target.value)}
                     placeholder="Describe when a project is rejected (e.g. Cost exceeds 50% of home value, structural instability, hoarding issues)."
@@ -1096,12 +1112,13 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         <h4 className="font-bold text-gray-900 mb-4">Intake Channels</h4>
         <div className="flex flex-wrap gap-4">
           {['phone', 'web', 'walkin'].map(channel => (
-            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-500' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
+            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-[#8179E2]/10 border-[#8179E2] ring-1 ring-[#8179E2]' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
               <input 
                 type="checkbox" 
                 checked={data.intakeMethods[channel]}
                 onChange={(e) => onChange('intakeMethods', { ...data.intakeMethods, [channel]: e.target.checked })}
-                className="rounded text-blue-600 focus:ring-blue-500 h-5 w-5"
+                className="rounded focus:ring-[#8179E2] h-5 w-5"
+                style={{ color: BRAND_COLOR }}
               />
               <span className="capitalize text-sm font-medium text-gray-700">{channel === 'walkin' ? 'Walk-in' : channel}</span>
             </label>
@@ -1117,15 +1134,16 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
           {VULNERABLE_GROUPS.map(group => (
-            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-blue-50 border-blue-200' : 'hover:bg-slate-50 border-transparent'}`}>
+            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-[#8179E2]/10 border-[#8179E2]' : 'hover:bg-slate-50 border-transparent'}`}>
                <input 
                  type="checkbox"
-                 className="mt-1 rounded text-blue-600 focus:ring-blue-500 h-4 w-4"
+                 className="mt-1 rounded focus:ring-[#8179E2] h-4 w-4"
+                 style={{ color: BRAND_COLOR }}
                  checked={data.priorityFactors?.[group.key] !== undefined}
                  onChange={() => toggleGroup(group.key)}
                />
                <div>
-                 <div className={`text-sm font-medium ${data.priorityFactors?.[group.key] !== undefined ? 'text-blue-900' : 'text-gray-700'}`}>{group.label}</div>
+                 <div className={`text-sm font-medium ${data.priorityFactors?.[group.key] !== undefined ? 'text-[#6961CC]' : 'text-gray-700'}`}>{group.label}</div>
                  <div className="text-xs text-gray-500 mt-0.5">{group.reason}</div>
                </div>
             </label>
@@ -1139,13 +1157,13 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
                 <div className="flex justify-between items-center mb-2">
                 <span className="font-bold text-gray-800 text-sm">Health & Safety Urgency</span>
-                <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">{data.priorityFactors?.healthSafety || 5}</span>
+                <span className="text-white text-xs font-bold px-2 py-1 rounded" style={{ backgroundColor: BRAND_COLOR }}>{data.priorityFactors?.healthSafety || 5}</span>
                 </div>
                 <input 
                 type="range" 
                 min="1" 
                 max="5" 
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8179E2]"
                 value={data.priorityFactors?.healthSafety || 5}
                 onChange={(e) => onChange('priorityFactors', { ...data.priorityFactors, healthSafety: parseInt(e.target.value) })}
                 />
@@ -1165,7 +1183,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                     type="range" 
                     min="1" 
                     max="5" 
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8179E2]"
                     value={data.priorityFactors[factor]}
                     onChange={(e) => onChange('priorityFactors', { ...data.priorityFactors, [factor]: parseInt(e.target.value) })}
                 />
@@ -1182,7 +1200,7 @@ const LifecycleStep: React.FC<StepProps> = ({ data }) => {
   return (
     <div className="space-y-8">
         <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-            <h4 className="font-bold text-gray-900 mb-4 flex items-center"><User className="w-5 h-5 mr-2 text-blue-600"/> Owner Participation (Sweat Equity)</h4>
+            <h4 className="font-bold text-gray-900 mb-4 flex items-center"><User className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Owner Participation (Sweat Equity)</h4>
             <div className="grid grid-cols-1 gap-6">
                 <div className="p-4 bg-gray-50 rounded-lg">
                    <p className="text-sm text-gray-600 italic">Lifecycle details are configured in "Client Services". This view is for reference.</p>
@@ -1194,7 +1212,7 @@ const LifecycleStep: React.FC<StepProps> = ({ data }) => {
         <div className="pl-4 border-l-2 border-gray-200">
             {data.stages.map((stage) => (
                 <div key={stage.id} className="mb-4 pl-4 relative">
-                    <div className="absolute -left-[21px] top-1 w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full" style={{ backgroundColor: BRAND_COLOR }}></div>
                     <h5 className="font-bold text-sm">{stage.name}</h5>
                     <p className="text-xs text-gray-500">{stage.reqDoc}</p>
                 </div>
@@ -1217,11 +1235,11 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
     <div className="space-y-8">
       {/* Procurement */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Briefcase className="w-5 h-5 mr-2 text-blue-600"/> Repair Partner (Contractor) Selection</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Briefcase className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Repair Partner (Contractor) Selection</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Method</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
                     <option value="Bids">Competitive Bids (3+)</option>
                     <option value="Preferred Vendor List">Preferred Vendor List</option>
                     <option value="Sole Source">Sole Source (Specialized)</option>
@@ -1229,14 +1247,14 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Minimum Qualifications</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Required Documentation</label>
                 <div className="flex gap-4">
                     {['w9', 'coi', 'bonding', 'warranty'].map(doc => (
                         <label key={doc} className="flex items-center space-x-2">
-                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600" />
+                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600 focus:ring-[#21AC9A]" />
                             <span className="uppercase text-sm">{doc}</span>
                         </label>
                     ))}
@@ -1247,38 +1265,38 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
 
       {/* Volunteer Standards */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Users className="w-5 h-5 mr-2 text-blue-600"/> Volunteer Participation</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Users className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Volunteer Participation</h4>
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Allowed vs. Prohibited Scopes</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Supervision Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Training Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
             </div>
         </div>
       </div>
 
       {/* Safety */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><HardHat className="w-5 h-5 mr-2 text-blue-600"/> Risk Management & Safety</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><HardHat className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Risk Management & Safety</h4>
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Risk Screening Topics</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Safety Plan Elements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Mandatory Specialty Contractors</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
             </div>
         </div>
       </div>
@@ -1293,19 +1311,19 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
     <div className="space-y-8">
       {/* Financial Sustainability */}
       <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><Activity className="w-5 h-5 mr-2 text-blue-600"/> Financial Sustainability</h4>
+        <h4 className="font-bold text-gray-900 mb-4 flex items-center"><ActivityIcon className="w-5 h-5 mr-2" style={{ color: BRAND_COLOR }}/> Financial Sustainability</h4>
         <div className="grid grid-cols-1 gap-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Funding Mix Strategy</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Cost Controls & Contingency</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Targets (Pipeline)</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
             </div>
         </div>
       </div>
@@ -1315,7 +1333,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Reporting Schedule</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
                     <option value="annually">Annually</option>
@@ -1323,7 +1341,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feedback Mechanism</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#21AC9A] focus:ring-[#21AC9A]" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
             </div>
         </div>
       </div>
@@ -1562,6 +1580,7 @@ const ExportStep: React.FC<{ data: ManualData }> = ({ data }) => {
 // --- Main App Component ---
 
 export default function RepairManualBuilder() {
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'builder'

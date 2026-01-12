@@ -124,7 +124,7 @@ interface ManualData {
       documentation: string;
     };
   };
-  stages: Stage[]; // Kept for legacy compatibility if needed, though duplicative of clientServices.stages in concept
+  stages: Stage[]; // Kept for legacy compatibility if needed
   participation: {
     required: string;
     options: string;
@@ -370,7 +370,7 @@ const INITIAL_DATA: ManualData = {
   },
 
   // Meta
-  version: '1.7.8',
+  version: '1.7.7',
   lastUpdated: new Date().toISOString(),
   constructionActivities: {
     hasCatalog: null, 
@@ -1698,11 +1698,11 @@ export default function RepairManualBuilder() {
       <div className={`fixed inset-y-0 left-0 transform ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out z-30 w-72 bg-slate-900 text-slate-300 flex flex-col shadow-2xl`}>
         <div className="p-6 border-b border-slate-800">
           <div className="flex items-center space-x-3 mb-1">
-            <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-900/50">
+            <div className="p-2 rounded-lg" style={{ backgroundColor: BRAND_COLOR }}>
               <Book className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">P&P Builder</span>
+                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">Policy Builder</span>
                 <span className="text-xs text-blue-400 font-medium">for Repair programs</span>
             </div>
           </div>
@@ -1723,9 +1723,10 @@ export default function RepairManualBuilder() {
                 onClick={() => { setCurrentStep(index); setMobileMenuOpen(false); }}
                 className={`w-full flex items-center p-3 rounded-lg text-sm font-medium transition-all duration-200 group ${
                   isActive 
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' 
+                    ? 'text-white shadow-lg shadow-blue-900/20' 
                     : 'hover:bg-slate-800 text-slate-400 hover:text-white'
                 }`}
+                style={isActive ? { backgroundColor: BRAND_COLOR } : {}}
               >
                 <Icon className={`mr-3 h-5 w-5 ${isActive ? 'text-white' : 'text-slate-500 group-hover:text-white'}`} />
                 <div className="flex-1 text-left">
@@ -1783,7 +1784,7 @@ export default function RepairManualBuilder() {
                 <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mr-3 text-gray-600">
                     {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
-                <span className="font-bold text-gray-800">P&P Builder</span>
+                <span className="font-bold text-gray-800">Policy Builder</span>
            </div>
         </div>
 
@@ -1804,7 +1805,10 @@ export default function RepairManualBuilder() {
              <button 
                onClick={() => setCurrentStep(Math.min(STEPS.length - 1, currentStep + 1))}
                disabled={currentStep === STEPS.length - 1}
-               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
+               className="px-4 py-2 text-white rounded-lg shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
+               style={{ backgroundColor: BRAND_COLOR }}
+               onMouseOver={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR_DARK}
+               onMouseOut={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR}
              >
                Next Step <ChevronRight className="ml-2 h-4 w-4" />
              </button>

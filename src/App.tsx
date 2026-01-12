@@ -869,7 +869,7 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
   const updatePricing = (field: string, value: string) => onChange('pricing', { ...data.pricing, [field]: value });
   // Logic to handle catalog selection
   const setHasCatalog = (val: boolean) => onChange('constructionActivities', { ...data.constructionActivities, hasCatalog: val });
-
+  
   return (
     <div className="space-y-8">
       {/* Pricing Model - Moved Up */}
@@ -1061,7 +1061,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Assessment Protocol</label>
                 <select 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
                     value={data.projectFeasibility?.assessmentProtocol || 'internal'}
                     onChange={(e) => updateFeasibility('assessmentProtocol', e.target.value)}
                 >
@@ -1075,7 +1075,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Authority (Role)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
                     value={data.projectFeasibility?.selectionAuthority || ''}
                     onChange={(e) => updateFeasibility('selectionAuthority', e.target.value)}
                     placeholder="e.g. Program Manager"
@@ -1085,7 +1085,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Decision Artifact (Document)</label>
                 <input 
                     type="text" 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]"
                     value={data.projectFeasibility?.selectionArtifact || ''}
                     onChange={(e) => updateFeasibility('selectionArtifact', e.target.value)}
                     placeholder="e.g. Project Selection Scorecard, Approval Memo"
@@ -1094,7 +1094,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feasibility Limits (Deferral Policy)</label>
                 <textarea 
-                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24 focus:border-[#8179E2] focus:ring-[#8179E2]"
+                    className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2.5 border h-24 focus:border-[#6C64DD] focus:ring-[#6C64DD]"
                     value={data.projectFeasibility?.feasibilityLimits || ''}
                     onChange={(e) => updateFeasibility('feasibilityLimits', e.target.value)}
                     placeholder="Describe when a project is rejected (e.g. Cost exceeds 50% of home value, structural instability, hoarding issues)."
@@ -1111,12 +1111,12 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         <h4 className="font-bold text-gray-900 mb-4">Intake Channels</h4>
         <div className="flex flex-wrap gap-4">
           {['phone', 'web', 'walkin'].map(channel => (
-            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-[#8179E2]/10 border-[#8179E2] ring-1 ring-[#8179E2]' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
+            <label key={channel} className={`flex items-center space-x-3 px-4 py-3 rounded-lg border cursor-pointer transition-all ${data.intakeMethods[channel] ? 'bg-[#6C64DD]/10 border-[#6C64DD] ring-1 ring-[#6C64DD]' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
               <input 
                 type="checkbox" 
                 checked={data.intakeMethods[channel]}
                 onChange={(e) => onChange('intakeMethods', { ...data.intakeMethods, [channel]: e.target.checked })}
-                className="rounded focus:ring-[#8179E2] h-5 w-5"
+                className="rounded focus:ring-[#6C64DD] h-5 w-5"
                 style={{ color: BRAND_COLOR }}
               />
               <span className="capitalize text-sm font-medium text-gray-700">{channel === 'walkin' ? 'Walk-in' : channel}</span>
@@ -1133,10 +1133,10 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
           {VULNERABLE_GROUPS.map(group => (
-            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-[#8179E2]/10 border-[#8179E2]' : 'hover:bg-slate-50 border-transparent'}`}>
+            <label key={group.key} className={`flex items-start space-x-3 p-3 rounded-lg border cursor-pointer transition-all ${data.priorityFactors?.[group.key] !== undefined ? 'bg-[#6C64DD]/10 border-[#6C64DD]' : 'hover:bg-slate-50 border-transparent'}`}>
                <input 
                  type="checkbox"
-                 className="mt-1 rounded focus:ring-[#8179E2] h-4 w-4"
+                 className="mt-1 rounded focus:ring-[#6C64DD] h-4 w-4"
                  style={{ color: BRAND_COLOR }}
                  checked={data.priorityFactors?.[group.key] !== undefined}
                  onChange={() => toggleGroup(group.key)}
@@ -1697,10 +1697,10 @@ export default function RepairManualBuilder() {
         <div className="p-6 border-b border-slate-800">
           <div className="flex items-center space-x-3 mb-1">
             <div className="p-2 rounded-lg" style={{ backgroundColor: BRAND_COLOR }}>
-              <Book className="h-6 w-6 text-white" />
+              <img src={LOGO_URL} alt="Policy Builder" className="h-6 w-6 object-contain" />
             </div>
             <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">P&P Builder</span>
+                <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">Policy Builder</span>
                 <span className="text-xs text-blue-400 font-medium">for Repair programs</span>
             </div>
           </div>
@@ -1782,7 +1782,7 @@ export default function RepairManualBuilder() {
                 <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mr-3 text-gray-600">
                     {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
-                <span className="font-bold text-gray-800">P&P Builder</span>
+                <span className="font-bold text-gray-800">Policy Builder</span>
            </div>
         </div>
 
@@ -1803,7 +1803,10 @@ export default function RepairManualBuilder() {
              <button 
                onClick={() => setCurrentStep(Math.min(STEPS.length - 1, currentStep + 1))}
                disabled={currentStep === STEPS.length - 1}
-               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
+               className="px-4 py-2 text-white rounded-lg shadow-sm flex items-center disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-all text-sm"
+               style={{ backgroundColor: BRAND_COLOR }}
+               onMouseOver={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR_DARK}
+               onMouseOut={(e) => e.currentTarget.style.backgroundColor = BRAND_COLOR}
              >
                Next Step <ChevronRight className="ml-2 h-4 w-4" />
              </button>

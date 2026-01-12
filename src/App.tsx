@@ -869,7 +869,6 @@ const ScopeStep: React.FC<StepProps> = ({ data, onChange }) => {
   const updatePricing = (field: string, value: string) => onChange('pricing', { ...data.pricing, [field]: value });
   // Logic to handle catalog selection
   const setHasCatalog = (val: boolean) => onChange('constructionActivities', { ...data.constructionActivities, hasCatalog: val });
-  const updateActivities = (field: string, value: string) => onChange('constructionActivities', { ...data.constructionActivities, [field]: value });
 
   return (
     <div className="space-y-8">
@@ -1163,7 +1162,7 @@ const ClientScreeningStep: React.FC<StepProps> = ({ data, onChange }) => {
                 type="range" 
                 min="1" 
                 max="5" 
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#6C64DD]"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8179E2]"
                 value={data.priorityFactors?.healthSafety || 5}
                 onChange={(e) => onChange('priorityFactors', { ...data.priorityFactors, healthSafety: parseInt(e.target.value) })}
                 />
@@ -1239,7 +1238,7 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Selection Method</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.procurement?.selectionMethod || 'Preferred Vendor List'} onChange={(e) => updateProcurement('selectionMethod', e.target.value)}>
                     <option value="Bids">Competitive Bids (3+)</option>
                     <option value="Preferred Vendor List">Preferred Vendor List</option>
                     <option value="Sole Source">Sole Source (Specialized)</option>
@@ -1247,14 +1246,14 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Minimum Qualifications</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.procurement?.minQualifications || ''} onChange={(e) => updateProcurement('minQualifications', e.target.value)} placeholder="License, Insurance limits, etc." />
             </div>
             <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Required Documentation</label>
                 <div className="flex gap-4">
                     {['w9', 'coi', 'bonding', 'warranty'].map(doc => (
                         <label key={doc} className="flex items-center space-x-2">
-                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600 focus:ring-[#6C64DD]" />
+                            <input type="checkbox" checked={data.procurement?.requiredDocs?.[doc] || false} onChange={() => toggleDoc(doc)} className="rounded text-blue-600 focus:ring-[#8179E2]" />
                             <span className="uppercase text-sm">{doc}</span>
                         </label>
                     ))}
@@ -1269,15 +1268,15 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Allowed vs. Prohibited Scopes</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.allowedScopes || ''} onChange={(e) => updateVolunteers('allowedScopes', e.target.value)} placeholder="e.g. Painting allowed; Roofing prohibited" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Supervision Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.supervision || ''} onChange={(e) => updateVolunteers('supervision', e.target.value)} placeholder="e.g. Ratio 1:5, Competent Person on site" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Training Requirements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.volunteerStandards?.training || ''} onChange={(e) => updateVolunteers('training', e.target.value)} placeholder="e.g. Online safety video, Ladder safety" />
             </div>
         </div>
       </div>
@@ -1288,15 +1287,15 @@ const WorkforceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="space-y-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Risk Screening Topics</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.riskScreening || ''} onChange={(e) => updateSafety('riskScreening', e.target.value)} placeholder="e.g. Lead, Asbestos, Structural, Pets" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Safety Plan Elements</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.safetyPlan || ''} onChange={(e) => updateSafety('safetyPlan', e.target.value)} placeholder="e.g. PPE, Morning Briefs, Stop Work Authority" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Mandatory Specialty Contractors</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.safety?.specialtyContractorTriggers || ''} onChange={(e) => updateSafety('specialtyContractorTriggers', e.target.value)} placeholder="e.g. Electrical, High Roofs, HVAC" />
             </div>
         </div>
       </div>
@@ -1315,15 +1314,15 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 gap-4">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Funding Mix Strategy</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.fundingMix || ''} onChange={(e) => updateSustainability('fundingMix', e.target.value)} placeholder="e.g. Grants, Fees, Donations" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Cost Controls & Contingency</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.costControls || ''} onChange={(e) => updateSustainability('costControls', e.target.value)} placeholder="e.g. 10% contingency on all projects" />
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Targets (Pipeline)</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.sustainability?.pipelineTargets || ''} onChange={(e) => updateSustainability('pipelineTargets', e.target.value)} placeholder="e.g. 15 homes" />
             </div>
         </div>
       </div>
@@ -1333,7 +1332,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Reporting Schedule</label>
-                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
+                <select className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.reportingSchedule} onChange={(e) => onChange('reportingSchedule', e.target.value)}>
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
                     <option value="annually">Annually</option>
@@ -1341,7 +1340,7 @@ const PerformanceStep: React.FC<StepProps> = ({ data, onChange }) => {
             </div>
             <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Feedback Mechanism</label>
-                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#6C64DD] focus:ring-[#6C64DD]" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
+                <input type="text" className="block w-full rounded-lg border-gray-300 p-2.5 border focus:border-[#8179E2] focus:ring-[#8179E2]" value={data.feedbackMechanism} onChange={(e) => onChange('feedbackMechanism', e.target.value)} placeholder="e.g. Annual Survey" />
             </div>
         </div>
       </div>
@@ -1698,7 +1697,7 @@ export default function RepairManualBuilder() {
         <div className="p-6 border-b border-slate-800">
           <div className="flex items-center space-x-3 mb-1">
             <div className="p-2 rounded-lg" style={{ backgroundColor: BRAND_COLOR }}>
-              <img src={LOGO_URL} alt="Policy Builder" className="h-6 w-6 object-contain" />
+              <Book className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col">
                 <span className="text-xl font-bold text-gray-900 tracking-tight leading-none text-white">Policy Builder</span>
